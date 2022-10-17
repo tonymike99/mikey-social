@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../hooks/context/auth-context";
+import { useAuth } from "../hooks/context/index";
 
 function RestrictedRoute() {
   const { userDetails, encodedToken } = useAuth();

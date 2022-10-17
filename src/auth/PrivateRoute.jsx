@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, Outlet, Navigate } from "react-router-dom";
-import { useAuth } from "../hooks/context/auth-context";
+import { useAuth } from "../hooks/context/index";
 
 function PrivateRoute() {
   const { userDetails, encodedToken } = useAuth();
