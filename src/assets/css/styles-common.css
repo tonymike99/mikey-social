@@ -44,3 +44,26 @@ i {
 }
 
 /* **************************************************************************************************** */
+
+/* LOGIN AND SIGNUP PAGES */
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  padding: 2rem;
+  width: 30rem;
+  text-align: center;
+}
+
+@media only screen and (max-width: 360px) {
+  .form {
+    width: 100%;
+  }
+}
+
+/* **************************************************************************************************** */
