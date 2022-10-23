@@ -30,22 +30,47 @@ function Header() {
       <nav>
         <ul className="list list-horizontal">
           <li>
+            <Link to="/" className="styled-link">
+              <i className="fa-solid fa-home fa-lg" /> Home
+            </Link>
+          </li>
+
+          <li>
+            <Link to="/explore" className="styled-link">
+              <i className="fa-solid fa-magnifying-glass fa-lg" /> Explore
+            </Link>
+          </li>
+
+          {encodedToken && (
+            <li>
+              <Link to="/profile" className="styled-link">
+                <i className="fa-solid fa-user fa-lg"></i> Profile
+              </Link>
+            </li>
+          )}
+
+          {encodedToken && (
+            <li>
+              <Link to="/settings" className="styled-link">
+                <i className="fa-solid fa-gear fa-lg"></i> Settings
+              </Link>
+            </li>
+          )}
+
+          <li>
             {encodedToken ? (
               <Link to="/" className="styled-link" onClick={handlerLogout}>
-                Logout <i className="fa-solid fa-right-from-bracket fa-lg"></i>
+                <i className="fa-solid fa-right-from-bracket fa-lg"></i> Logout
               </Link>
             ) : (
-              <Link to="/login" className="styled-link">
-                Login <i className="fas fa-user fa-lg" />
+              <Link to="/auth" className="styled-link">
+                <i className="fa-solid fa-right-to-bracket  fa-lg" /> Login
               </Link>
             )}
           </li>
-          <li>
-            <Link to="/" className="styled-link">
-              <i className="fas fa-home fa-lg" />
-            </Link>
-          </li>
+
           <li>|</li>
+
           <li>
             <a
               className="styled-link"
@@ -62,8 +87,8 @@ function Header() {
                 id="theme-icon"
                 className={
                   theme === "dark-theme"
-                    ? "fas fa-sun fa-lg"
-                    : "fas fa-moon fa-lg"
+                    ? "fa-solid fa-sun fa-lg"
+                    : "fa-solid fa-moon fa-lg"
                 }
               />
             </Link>
