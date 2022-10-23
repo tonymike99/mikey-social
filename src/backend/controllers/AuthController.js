@@ -119,7 +119,9 @@ export const verifyJwtTokenHandler = function (schema, request) {
   const decodedToken = jwt_decode(localToken, process.env.REACT_APP_JWT_SECRET);
   try {
     if (decodedToken) {
-      const foundUser = this.db.users.findBy({ email: decodedToken.email });
+      const foundUser = this.db.users.findBy({
+        username: decodedToken.username,
+      });
       if (!foundUser) {
         return new Response(
           401,
