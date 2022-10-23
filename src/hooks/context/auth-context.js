@@ -35,7 +35,7 @@ const AuthProvider = ({ children }) => {
         setUserDetails(loginResponse.data.foundUser);
         setEncodedToken(loginResponse.data.encodedToken);
         localStorage.setItem(
-          "mikey-cart-jwt-token",
+          "mikey-social-jwt-token",
           loginResponse.data.encodedToken
         );
       }
@@ -58,7 +58,7 @@ const AuthProvider = ({ children }) => {
         setUserDetails(signupResponse.data.createdUser);
         setEncodedToken(signupResponse.data.encodedToken);
         localStorage.setItem(
-          "mikey-cart-jwt-token",
+          "mikey-social-jwt-token",
           signupResponse.data.encodedToken
         );
       }
@@ -70,10 +70,7 @@ const AuthProvider = ({ children }) => {
   const logoutUserDetails = () => {
     setUserDetails(null);
     setEncodedToken(null);
-    localStorage.removeItem("mikey-cart-jwt-token");
-    localStorage.removeItem("storedFilters");
-    localStorage.removeItem("storedWishlistProducts");
-    localStorage.removeItem("storedCartProducts");
+    localStorage.removeItem("mikey-social-jwt-token");
   };
 
   const verifyJwtTokenOnPageRefresh = async (localToken) => {
