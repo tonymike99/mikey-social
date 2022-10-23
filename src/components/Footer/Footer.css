@@ -1,0 +1,52 @@
+/* FONT STYLES */
+@import url("https://fonts.googleapis.com/css2?family=Italianno&display=swap");
+
+/* **************************************************************************************************** */
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem 1.5rem;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  margin-top: 2.5rem;
+}
+
+.my-name {
+  font-family: "Italianno", cursive;
+  font-size: 4rem;
+}
+
+.footer-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.color-heart {
+  color: red;
+}
+
+.color-code {
+  color: #15aabf;
+}
+
+.color-github,
+.color-twitter,
+.color-facebook,
+.color-email,
+.color-linkedin,
+.color-instagram,
+.color-stackoverflow,
+.color-hashnode,
+.color-medium {
+  color: white;
+}
+
+/* **************************************************************************************************** */
