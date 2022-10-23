@@ -1,0 +1,46 @@
+/* COMPONENT STYLES */
+@import url("https://mikey-css.netlify.app/assets/css/components.css");
+
+/* **************************************************************************************************** */
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1;
+  background-color: var(--light-mode);
+  color: var(--dark-mode);
+}
+
+.dark-theme {
+  --light-mode: #05103a;
+  --dark-mode: #f8f9fa;
+}
+
+.hr-thin {
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  height: 0;
+  width: 100%;
+}
+
+.styled-link {
+  color: inherit;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.styled-link:hover {
+  background-color: #36096d;
+  background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 80%);
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  -moz-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+i {
+  padding: 0.5rem;
+}
+
+/* **************************************************************************************************** */
