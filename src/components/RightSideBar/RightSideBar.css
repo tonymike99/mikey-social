@@ -1,0 +1,12 @@
+.right-sidebar {
+  grid-area: right-sidebar;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .right-sidebar > ul {
+    text-align: center;
+  }
+}
