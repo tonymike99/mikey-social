@@ -84,7 +84,7 @@ const PostProvider = ({ children }) => {
 
       const createPostResponse = await axios.request(params);
 
-      if (createPostResponse.status === 200) {
+      if (createPostResponse.status === 201) {
         setPosts(createPostResponse.data.posts);
       }
     } catch (error) {
@@ -92,11 +92,11 @@ const PostProvider = ({ children }) => {
     }
   };
 
-  const editPost = async (postData) => {
+  const editPost = async (postData, postId) => {
     try {
       const params = {
         method: "post",
-        url: `/api/posts/edit/${postData.id}`,
+        url: `/api/posts/edit/${postId}`,
         data: { postData },
         headers: {
           authorization: encodedToken,
@@ -105,7 +105,7 @@ const PostProvider = ({ children }) => {
 
       const editPostResponse = await axios.request(params);
 
-      if (editPostResponse.status === 200) {
+      if (editPostResponse.status === 201) {
         setPosts(editPostResponse.data.posts);
       }
     } catch (error) {
@@ -125,7 +125,7 @@ const PostProvider = ({ children }) => {
 
       const deletePostResponse = await axios.request(params);
 
-      if (deletePostResponse.status === 200) {
+      if (deletePostResponse.status === 201) {
         setPosts(deletePostResponse.data.posts);
       }
     } catch (error) {
@@ -145,7 +145,7 @@ const PostProvider = ({ children }) => {
 
       const likePostResponse = await axios.request(params);
 
-      if (likePostResponse.status === 200) {
+      if (likePostResponse.status === 201) {
         setPosts(likePostResponse.data.posts);
       }
     } catch (error) {
@@ -165,11 +165,50 @@ const PostProvider = ({ children }) => {
 
       const dislikePostResponse = await axios.request(params);
 
-      if (dislikePostResponse.status === 200) {
+      if (dislikePostResponse.status === 201) {
         setPosts(dislikePostResponse.data.posts);
       }
     } catch (error) {
       console.error(error.response);
+    }
+  };
+
+  const addCommentToPost = async (postId, commentData) => {
+    try {
+      const params = {
+        method: "post",
+        url: `/api/comments/add/${postId}`,
+        data: { commentData },
+        headers: {
+          authorization: encodedToken,
+        },
+      };
+
+      const addCommentToPostResponse = await axios.request(params);
+      if (addCommentToPostResponse.status === 201) {
+        setPosts(addCommentToPostResponse.data.posts);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deleteCommentFromPost = async (postId, commentId) => {
+    try {
+      const params = {
+        method: "delete",
+        url: `/api/comments/delete/${postId}/${commentId}`,
+        headers: {
+          authorization: encodedToken,
+        },
+      };
+
+      const deleteCommentFromPostResponse = await axios.request(params);
+      if (deleteCommentFromPostResponse.status === 201) {
+        setPosts(deleteCommentFromPostResponse.data.posts);
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -183,6 +222,8 @@ const PostProvider = ({ children }) => {
     deletePost,
     likePost,
     dislikePost,
+    addCommentToPost,
+    deleteCommentFromPost,
   };
 
   // ****************************************************************************************************
