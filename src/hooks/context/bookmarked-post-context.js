@@ -13,7 +13,7 @@ const BookmarkPostProvider = ({ children }) => {
     if (encodedToken) {
       getAllBookmarkedPosts();
     }
-  }, []);
+  }, [encodedToken]);
 
   const getAllBookmarkedPosts = async () => {
     try {
@@ -23,6 +23,7 @@ const BookmarkPostProvider = ({ children }) => {
         headers: {
           authorization: encodedToken,
         },
+        data: {},
       };
 
       const getAllBookmarkedPostsResponse = await axios.request(params);
@@ -43,6 +44,7 @@ const BookmarkPostProvider = ({ children }) => {
         headers: {
           authorization: encodedToken,
         },
+        data: {},
       };
 
       const addPostToBookmarkedPostsResponse = await axios.request(params);
