@@ -9,11 +9,11 @@ const UserProvider = ({ children }) => {
   const { encodedToken } = useAuth();
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
-  const [followUser, setFollowUser] = useState({});
+  const [followedUnfollowedUser, setFollowedUnfollowedUser] = useState({});
 
   useEffect(() => {
     getAllUsers();
-  }, []);
+  }, [user]);
 
   const getAllUsers = async () => {
     try {
@@ -62,7 +62,7 @@ const UserProvider = ({ children }) => {
 
       const editUserResponse = await axios.request(params);
 
-      if (editUserResponse.status === 200) {
+      if (editUserResponse.status === 201) {
         setUser(editUserResponse.data.user);
       }
     } catch (error) {
@@ -84,7 +84,7 @@ const UserProvider = ({ children }) => {
 
       if (followUserResponse.status === 200) {
         setUser(followUserResponse.data.user);
-        setFollowUser(followUserResponse.data.followUser);
+        setFollowedUnfollowedUser(followUserResponse.data.followUser);
       }
     } catch (error) {
       console.error(error.response);
@@ -105,7 +105,7 @@ const UserProvider = ({ children }) => {
 
       if (unfollowUserResponse.status === 200) {
         setUser(unfollowUserResponse.data.user);
-        setFollowUser(unfollowUserResponse.data.followUser);
+        setFollowedUnfollowedUser(unfollowUserResponse.data.followUser);
       }
     } catch (error) {
       console.error(error.response);
@@ -115,7 +115,7 @@ const UserProvider = ({ children }) => {
   const valueObj = {
     users,
     user,
-    followUser,
+    followedUnfollowedUser,
     getUserById,
     editUser,
     followUserById,
