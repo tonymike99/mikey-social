@@ -189,7 +189,7 @@ const PostProvider = ({ children }) => {
         setPosts(addCommentToPostResponse.data.posts);
       }
     } catch (error) {
-      console.error(error);
+      console.error(error.response);
     }
   };
 
@@ -208,7 +208,7 @@ const PostProvider = ({ children }) => {
         setPosts(deleteCommentFromPostResponse.data.posts);
       }
     } catch (error) {
-      console.error(error);
+      console.error(error.response);
     }
   };
 
