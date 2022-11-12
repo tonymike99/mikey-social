@@ -28,7 +28,7 @@ function Login({ setComponent }) {
   };
 
   const handleGuestLoginOnClick = () => {
-    let details = {
+    const details = {
       username: "guest_user",
       password: "IcedLatte@2022",
     };

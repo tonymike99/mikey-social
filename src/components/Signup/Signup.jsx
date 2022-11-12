@@ -40,7 +40,7 @@ function Signup({ setComponent }) {
   };
 
   const handleGuestSignupOnClick = () => {
-    let details = {
+    const details = {
       firstName: "Tony",
       lastName: "Mike",
       username: "tonymike",
