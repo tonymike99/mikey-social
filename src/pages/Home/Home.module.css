@@ -1,0 +1,20 @@
+.container-authenticated {
+  display: grid;
+  grid-template-areas: "main right-sidebar";
+  grid-template-columns: 1fr 37.5rem;
+}
+
+@media screen and (max-width: 900px) {
+  .container-authenticated {
+    grid-template-areas:
+      "main"
+      "right-sidebar";
+    grid-template-columns: auto;
+  }
+}
+
+.container-unauthenticated {
+  display: grid;
+  grid-template-areas: "main";
+  grid-template-columns: auto;
+}

@@ -1,0 +1,40 @@
+.home {
+  display: flex;
+}
+
+.home > * {
+  flex-basis: 50%;
+}
+
+.hero-image {
+  margin-top: -2.5rem;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.sub-title {
+  font-size: 7.5rem;
+}
+
+@media screen and (max-width: 960px) {
+  .sub-title {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .home {
+    flex-direction: column;
+  }
+
+  .hero-text,
+  .sub-title,
+  .description {
+    text-align: center;
+  }
+}
