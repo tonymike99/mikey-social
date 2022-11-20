@@ -39,30 +39,147 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-i {
-  padding: 0.5rem;
+main,
+aside {
+  margin: 0 2rem;
+}
+
+/* COMMON */
+
+.xs {
+  width: 3.5rem;
+}
+
+.fa-circle-check {
+  color: #1a8cd8;
+}
+
+.btn-squared {
+  border-radius: 5px;
+}
+
+.btn-thin {
+  padding: 0.5rem 2rem;
+}
+
+.grid {
+  gap: 0;
+}
+
+.color-grey {
+  color: darkcyan;
 }
 
 /* **************************************************************************************************** */
 
-/* LOGIN AND SIGNUP PAGES */
+/* PROFILE PAGE */
 
-.auth {
+.display-picture {
+  width: 25rem;
+  border-radius: 50%;
+  top: 100%;
+  left: 15rem;
+  transform: translate(-50%, -50%);
+}
+
+.profile-details {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 15rem;
+  margin-left: 2.5rem;
+  margin-bottom: 5rem;
+}
+
+.buttons-align {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.edit-profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+@media screen and (max-width: 1280px) {
+  .display-picture {
+    width: 20rem;
+    left: 12.5rem;
+  }
+
+  .profile-details {
+    margin-top: 12rem;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .display-picture {
+    width: 15rem;
+    left: 10rem;
+  }
+
+  .profile-details {
+    margin-top: 10rem;
+  }
+}
+
+.profile-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 1rem 0;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.profile-header {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.profile-header-extended {
+  display: flex;
+  gap: 1rem;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-.form {
-  padding: 2rem;
-  width: 30rem;
+.posts-header {
+  margin: 3rem;
+}
+
+.empty-posts-container {
   text-align: center;
+  margin: 10rem;
 }
 
-@media only screen and (max-width: 360px) {
-  .form {
-    width: 100%;
+.card-modal-post-input {
+  background-color: var(--light-mode);
+  width: 50%;
+  padding: 6rem 3rem 3rem 3rem;
+  border-radius: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .card-modal-post-input {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card-modal-post-input {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .card-modal-post-input {
+    width: 80%;
   }
 }
 
