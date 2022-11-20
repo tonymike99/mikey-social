@@ -1,0 +1,9 @@
+.search-results-container {
+  margin: auto 15%;
+}
+
+@media screen and (max-width: 500px) {
+  .search-results-container {
+    margin: auto 2.5%;
+  }
+}
