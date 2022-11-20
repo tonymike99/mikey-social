@@ -1,0 +1,14 @@
+.main-container {
+  display: grid;
+  grid-template-areas: "main right-sidebar";
+  grid-template-columns: 1fr 37.5rem;
+}
+
+@media screen and (max-width: 900px) {
+  .main-container {
+    grid-template-areas:
+      "main"
+      "right-sidebar";
+    grid-template-columns: auto;
+  }
+}
