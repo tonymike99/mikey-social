@@ -7,7 +7,6 @@ function LeftSideBar() {
     { to: "/", name: "Home", icon: "fa-home" },
     { to: "/explore", name: "Explore", icon: "fa-compass" },
     { to: "/profile", name: "Profile", icon: "fa-user" },
-    { to: "/settings", name: "Settings", icon: "fa-gear" },
   ];
 
   return (
