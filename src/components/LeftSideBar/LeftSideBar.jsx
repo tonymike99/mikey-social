@@ -9,6 +9,8 @@ function LeftSideBar() {
     { to: "/profile", name: "Profile", icon: "fa-user" },
   ];
 
+  // ****************************************************************************************************
+
   return (
     <aside className="left-sidebar">
       <ul className="list list-vertical">
