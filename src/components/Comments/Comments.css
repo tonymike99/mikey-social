@@ -1,0 +1,49 @@
+.comment-input {
+  padding: 1.25rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.25rem;
+  font-family: inherit;
+  resize: none;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.commentsWrapper {
+  border: 2px solid white;
+  border-radius: 1rem;
+  margin: 2rem 0;
+  padding: 1rem;
+}
+
+.commentWrapper {
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.5rem 1.5rem 2rem;
+  align-items: center;
+}
+
+.commentInnerWrapper1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 1rem;
+}
+
+.commentInnerWrapper2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  flex-basis: content;
+  min-width: fit-content;
+}
+
+.profilePicAndCommentInput {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0 0.5rem 1.5rem 2rem;
+}
