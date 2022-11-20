@@ -1,5 +1,5 @@
-import { Post } from "../index";
 import { useLocation } from "react-router-dom";
+import { Post } from "../index";
 
 function Posts({ filteredPosts, users }) {
   // LOCATION
