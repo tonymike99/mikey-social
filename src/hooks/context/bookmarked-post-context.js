@@ -65,6 +65,7 @@ const BookmarkPostProvider = ({ children }) => {
         headers: {
           authorization: encodedToken,
         },
+        data: {},
       };
 
       const deletePostFromBookmarkedPostsResponse = await axios.request(params);

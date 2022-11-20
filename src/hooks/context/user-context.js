@@ -78,6 +78,7 @@ const UserProvider = ({ children }) => {
         headers: {
           authorization: encodedToken,
         },
+        data: {},
       };
 
       const followUserResponse = await axios.request(params);
@@ -99,6 +100,7 @@ const UserProvider = ({ children }) => {
         headers: {
           authorization: encodedToken,
         },
+        data: {},
       };
 
       const unfollowUserResponse = await axios.request(params);

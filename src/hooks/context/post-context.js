@@ -141,6 +141,7 @@ const PostProvider = ({ children }) => {
         headers: {
           authorization: encodedToken,
         },
+        data: {},
       };
 
       const likePostResponse = await axios.request(params);
@@ -161,6 +162,7 @@ const PostProvider = ({ children }) => {
         headers: {
           authorization: encodedToken,
         },
+        data: {},
       };
 
       const dislikePostResponse = await axios.request(params);
