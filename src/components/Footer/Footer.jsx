@@ -4,11 +4,8 @@ function Footer() {
   return (
     <footer className="footer">
       <small>
-        Made with
-        <i className="fa-solid fa-heart color-heart" />
-        and
-        <i className="fa-solid fa-code color-code" />
-        by
+        Made with <i className="fa-solid fa-heart color-heart" /> and{" "}
+        <i className="fa-solid fa-code color-code" /> by
       </small>
 
       <span className="my-name">Tony Mike Auxen</span>
