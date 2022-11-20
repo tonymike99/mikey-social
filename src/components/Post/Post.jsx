@@ -1,59 +1,176 @@
-function Post({ post }) {
+import "./Post.css";
+import { Link } from "react-router-dom";
+import { EditPostModal, Comments } from "../index";
+import { useAuth, usePost, useBookmarkPost } from "../../hooks/context/index";
+import { useState } from "react";
+
+function Post({ post, user }) {
+  // AUTH
+  const { userDetails } = useAuth();
+
+  // ****************************************************************************************************
+
+  // POST
+  const {
+    likePost,
+    dislikePost,
+    editPost,
+    deletePost,
+    addCommentToPost,
+    deleteCommentFromPost,
+  } = usePost();
+
+  // ****************************************************************************************************
+
+  // BOOKMARK POST
+  const {
+    bookmarkedPosts,
+    addPostToBookmarkedPosts,
+    deletePostFromBookmarkedPosts,
+  } = useBookmarkPost();
+
+  // ****************************************************************************************************
+
+  // STATE
+  const [isEditTrue, setIsEditTrue] = useState(false);
+
+  const [isExpandComments, setIsExpandComments] = useState(false);
+
+  // ****************************************************************************************************
+
+  //EVENT HANDLERS
+  const likeButtonOnClickHandler = () => {
+    isPostLikedByUser ? dislikePost(post._id) : likePost(post._id);
+  };
+
+  const bookmarkButtonOnClickHandler = () => {
+    isPostBookmarkedByUser
+      ? deletePostFromBookmarkedPosts(post._id)
+      : addPostToBookmarkedPosts(post._id);
+  };
+
+  const editButtonOnClickHandler = () => {
+    setIsEditTrue(true);
+  };
+
+  const commentsButtonOnClickHandler = () => {
+    setIsExpandComments(!isExpandComments);
+  };
+
+  const deleteButtonOnClickHandler = () => {
+    deletePost(post._id);
+  };
+
+  // ****************************************************************************************************
+
+  //HELPER FUNCTIONS
+  const isPostLikedByUser =
+    post.likes.likedBy.findIndex(
+      (likedPost) => likedPost.username === userDetails.username
+    ) >= 0;
+
+  const isPostBookmarkedByUser =
+    bookmarkedPosts.findIndex(
+      (bookmarkedPost) => bookmarkedPost._id === post._id
+    ) >= 0;
+
+  // ****************************************************************************************************
+
   return (
-    <div className="post-card">
-      <div className="profile-header">
-        <div className="profile-image-name-isVerified">
-          <img
-            src={post.profilePic}
-            alt={post.profilePic.name}
-            className="profile-pic"
-          />
+    <div className="post-container">
+      <Link to={`/${user.username}`} style={{ color: "unset" }}>
+        <div className="profile-header">
           <div>
-            <div className="profile-name-isVerified">
-              <h4>{post.name}</h4>
-              {post.isVerified && <i className="fa-solid fa-circle-check"></i>}
-            </div>
-            <small>{"@" + post.username}</small>
+            <img
+              src={user.displayPicture}
+              alt={user.username}
+              className="avatar sm round"
+            />
+          </div>
+          <div>
+            <h4>{user.firstName + " " + user.lastName}</h4>
+            <small>{"@" + user.username}</small>
+          </div>
+          <div>
+            <i
+              className="fa-solid fa-circle-check"
+              style={{ visibility: user.isVerified ? "visible" : "hidden" }}
+            ></i>
           </div>
         </div>
-      </div>
+      </Link>
 
       <div className="post-body">
-        <p>{post.content}</p>
+        <p>{post.text}</p>
+        {post.image !== "" && (
+          <img
+            className="image-size-75 post-image"
+            src={post.image}
+            alt={post._id}
+          />
+        )}
         <small className="post-body text-grey">{post.createdAt}</small>
-        <small>{post.likes.likeCount}</small>
       </div>
 
       <hr className="hr-thin" />
 
       <div className="post-footer">
-        <span>
-          <i className="fa-solid fa-heart"></i>
-          <i className="fa-regular fa-heart"></i>
-          Likes
+        <span className="pointer" onClick={likeButtonOnClickHandler}>
+          <i
+            className={
+              isPostLikedByUser ? "fa-solid fa-heart" : "fa-regular fa-heart"
+            }
+          ></i>{" "}
+          Likes <small>{post.likes.likeCount}</small>
         </span>
-
-        <span>
-          <i className="fa-solid fa-comment-dots"></i>
-          Comments
+        <span className="pointer" onClick={commentsButtonOnClickHandler}>
+          <i className="fa-solid fa-comment-dots"></i> Comments{" "}
+          {isExpandComments ? (
+            <i className="fa-solid fa-caret-down"></i>
+          ) : (
+            <i className="fa-solid fa-caret-right"></i>
+          )}
         </span>
-
-        <span>
-          <i className="fa-solid fa-pen"></i>
-          Edit
-        </span>
-
-        <span>
-          <i className="fa-solid fa-trash"></i>
-          Delete
-        </span>
-
-        <span>
-          <i className="fa-solid fa-bookmark"></i>
-          <i className="fa-regular fa-bookmark"></i>
+        {userDetails.username === post.username && (
+          <>
+            <span className="pointer" onClick={editButtonOnClickHandler}>
+              <i className="fa-solid fa-pen"></i> Edit
+            </span>
+            {isEditTrue && (
+              <EditPostModal
+                user={user}
+                editPost={editPost}
+                post={post}
+                setIsEditTrue={setIsEditTrue}
+              />
+            )}
+          </>
+        )}
+        {userDetails.username === post.username && (
+          <span className="pointer" onClick={deleteButtonOnClickHandler}>
+            <i className="fa-solid fa-trash"></i> Delete
+          </span>
+        )}
+        <span className="pointer" onClick={bookmarkButtonOnClickHandler}>
+          <i
+            className={
+              isPostBookmarkedByUser
+                ? "fa-solid fa-bookmark"
+                : "fa-regular fa-bookmark"
+            }
+          ></i>{" "}
           Bookmark
         </span>
       </div>
+
+      {isExpandComments && (
+        <Comments
+          post={post}
+          user={user}
+          addCommentToPost={addCommentToPost}
+          deleteCommentFromPost={deleteCommentFromPost}
+        />
+      )}
     </div>
   );
 }
