@@ -1,4 +1,14 @@
 export { Footer } from "./Footer/Footer";
 export { Header } from "./Header/Header";
+export { LeftSideBar } from "./LeftSideBar/LeftSideBar";
+export { RightSideBar } from "./RightSideBar/RightSideBar";
 export { Login } from "./Login/Login";
 export { Signup } from "./Signup/Signup";
+export { Post } from "./Post/Post";
+export { Suggestions } from "./Suggestions/Suggestions";
+export { ProfileHeader } from "./ProfileHeader/ProfileHeader";
+export { PostMessage } from "./PostMessage/PostMessage";
+export { Posts } from "./Posts/Posts";
+export { ProfileDetails } from "./ProfileDetails/ProfileDetails";
+export { EditPostModal } from "./EditPostModal/EditPostModal";
+export { Comments } from "./Comments/Comments";
