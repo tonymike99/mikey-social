@@ -1,11 +1,10 @@
 import "./RightSideBar.css";
 import { Suggestions } from "../index";
 
-function RightSideBar({ posts }) {
+function RightSideBar({ users }) {
   return (
     <aside className="right-sidebar">
-      <h3 className="margin-bottom-1">Suggestions</h3>
-      <Suggestions posts={posts} />
+      <Suggestions users={users} />
     </aside>
   );
 }
