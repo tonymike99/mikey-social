@@ -1,22 +1,81 @@
-function ProfileHeader({ post }) {
+import { Link } from "react-router-dom";
+import { useAuth, useUser } from "../../hooks/context/index";
+
+function ProfileHeader({ user }) {
+  // USER
+  const { users, followUserById, unfollowUserById } = useUser();
+
+  // ****************************************************************************************************
+
+  // AUTH
+  const { userDetails } = useAuth();
+
+  // ****************************************************************************************************
+
+  // EVENT HANDLERS
+  const followUnfollowOnClickHandler = () => {
+    doesLoggedInUserFollowUser()
+      ? unfollowUserById(user._id)
+      : followUserById(user._id);
+  };
+
+  // ****************************************************************************************************
+
+  // HELPER FUNCTIONS
+  const doesLoggedInUserFollowUser = () => {
+    const loggedInUser = users.find(
+      (user) => user.username === userDetails.username
+    );
+
+    if (
+      loggedInUser.following.findIndex(
+        (followingLoggedInUser) =>
+          followingLoggedInUser.username === user.username
+      ) >= 0
+    )
+      return true;
+    else return false;
+  };
+
+  // ****************************************************************************************************
+
   return (
     <>
-      <div className="profile-header">
-        <div className="profile-image-name-isVerified">
-          <img
-            src={post.profilePic}
-            alt={post.profilePic.name}
-            className="profile-pic"
-          />
-          <div>
-            <div className="profile-name-isVerified">
-              <h4>{post.name}</h4>
-              {post.isVerified && <i className="fa-solid fa-circle-check"></i>}
+      <div className="profile-header-container">
+        <Link to={`/${user.username}`} style={{ color: "unset" }}>
+          <div className="profile-header">
+            <div>
+              <img
+                src={user.displayPicture}
+                alt={user.username}
+                className="avatar sm round"
+              />
             </div>
-            <small>{"@" + post.username}</small>
+            <div>
+              <h4>{user.firstName + " " + user.lastName}</h4>
+              <small>{"@" + user.username}</small>
+            </div>
+            <div>
+              <i
+                className="fa-solid fa-circle-check"
+                style={{ visibility: user.isVerified ? "visible" : "hidden" }}
+              ></i>
+            </div>
           </div>
-        </div>
-        <button className="btn btn-primary btn-follow">Follow</button>
+        </Link>
+
+        {user.username !== userDetails.username && (
+          <button
+            className={
+              doesLoggedInUserFollowUser()
+                ? "btn btn-danger btn-squared btn-thin"
+                : "btn btn-primary btn-squared btn-thin"
+            }
+            onClick={followUnfollowOnClickHandler}
+          >
+            {doesLoggedInUserFollowUser() ? "Unfollow" : "Follow"}
+          </button>
+        )}
       </div>
       <hr className="hr-thin" />
     </>
