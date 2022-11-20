@@ -6,3 +6,4 @@ export {
   useBookmarkPost,
 } from "./bookmarked-post-context";
 export { PostProvider, usePost } from "./post-context";
+export { OthersProvider, useOthers } from "./others-context";

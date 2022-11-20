@@ -9,6 +9,7 @@ import {
   UserProvider,
   BookmarkPostProvider,
   PostProvider,
+  OthersProvider,
 } from "./hooks/context/index";
 
 // Call make Server
@@ -22,7 +23,9 @@ ReactDOM.render(
           <UserProvider>
             <BookmarkPostProvider>
               <PostProvider>
-                <App />
+                <OthersProvider>
+                  <App />
+                </OthersProvider>
               </PostProvider>
             </BookmarkPostProvider>
           </UserProvider>
