@@ -1,7 +1,9 @@
+import "./Auth.css";
 import { useState } from "react";
 import { Login, Signup } from "../../components/index";
 
 function Auth() {
+  // STATE
   const [component, setComponent] = useState("Login");
 
   // ****************************************************************************************************
