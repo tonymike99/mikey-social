@@ -1,10 +1,20 @@
 import "./Header.css";
-import { Link } from "react-router-dom";
-import { useTheme, useAuth } from "../../hooks/context/index";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useTheme, useAuth, useOthers } from "../../hooks/context/index";
 
 function Header() {
+  // THEME
   const { theme, setTheme } = useTheme();
+
+  /* **************************************************************************************************** */
+
+  // AUTH
   const { encodedToken, logoutUserDetails } = useAuth();
+
+  /* **************************************************************************************************** */
+
+  // OTHERS
+  const { searchBarText, setSearchBarText } = useOthers();
 
   /* **************************************************************************************************** */
 
@@ -19,6 +29,21 @@ function Header() {
     setTheme(theme === "light-theme" ? "dark-theme" : "light-theme");
   };
 
+  // To handle search bar text onInput
+  const handleSearchBarTextOnChange = (e) => {
+    navigate(`/search-results/search?username="${e.target.value}"`);
+    setSearchBarText(e.target.value);
+  };
+
+  /* **************************************************************************************************** */
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  if (!location.pathname.startsWith("/search-results")) {
+    setSearchBarText("");
+  }
+
   /* **************************************************************************************************** */
 
   return (
@@ -29,30 +54,41 @@ function Header() {
 
       <nav>
         <ul className="list list-horizontal">
+          {encodedToken && (
+            <li className="relative inline-block">
+              <input
+                type="text"
+                name="usernameSearch"
+                id="usernameSearch"
+                placeholder="Search username"
+                size="30"
+                value={searchBarText}
+                onChange={handleSearchBarTextOnChange}
+              />
+              <span className="absolute badge-inside-center-right">
+                <i className="fa-solid fa-magnifying-glass fa-lg" />
+              </span>
+            </li>
+          )}
+
           <li>
             <Link to="/" className="styled-link">
               <i className="fa-solid fa-home fa-lg" /> Home
             </Link>
           </li>
 
-          <li>
-            <Link to="/explore" className="styled-link">
-              <i className="fa-solid fa-magnifying-glass fa-lg" /> Explore
-            </Link>
-          </li>
-
           {encodedToken && (
             <li>
-              <Link to="/profile" className="styled-link">
-                <i className="fa-solid fa-user fa-lg"></i> Profile
+              <Link to="/explore" className="styled-link">
+                <i className="fa-solid fa-compass fa-lg" /> Explore
               </Link>
             </li>
           )}
 
           {encodedToken && (
             <li>
-              <Link to="/settings" className="styled-link">
-                <i className="fa-solid fa-gear fa-lg"></i> Settings
+              <Link to="/profile" className="styled-link">
+                <i className="fa-solid fa-user fa-lg"></i> Profile
               </Link>
             </li>
           )}
@@ -81,6 +117,7 @@ function Header() {
               <i className="fab fa-github fa-lg" />
             </a>
           </li>
+
           <li>
             <Link to="#" className="styled-link" onClick={handlerTheme}>
               <i
