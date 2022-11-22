@@ -9,7 +9,7 @@ function Header() {
   /* **************************************************************************************************** */
 
   // AUTH
-  const { encodedToken, logoutUserDetails } = useAuth();
+  const { userDetails, encodedToken, logoutUserDetails } = useAuth();
 
   /* **************************************************************************************************** */
 
@@ -87,7 +87,10 @@ function Header() {
 
           {encodedToken && (
             <li>
-              <Link to="/profile" className="styled-link">
+              <Link
+                to={`/profile/${userDetails.username}`}
+                className="styled-link"
+              >
                 <i className="fa-solid fa-user fa-lg"></i> Profile
               </Link>
             </li>

@@ -53,9 +53,7 @@ function Profile() {
   };
 
   const getUser = () => {
-    return location.pathname === "/profile"
-      ? loggedInUser()
-      : users.find((user) => user.username === location.pathname.slice(1));
+    return users.find((user) => user.username === location.pathname.slice(9));
   };
 
   // ****************************************************************************************************

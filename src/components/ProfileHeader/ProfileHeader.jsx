@@ -42,7 +42,7 @@ function ProfileHeader({ user }) {
   return (
     <>
       <div className="profile-header-container">
-        <Link to={`/${user.username}`} style={{ color: "unset" }}>
+        <Link to={`/profile/${user.username}`} style={{ color: "unset" }}>
           <div className="profile-header">
             <div>
               <img

@@ -43,7 +43,7 @@ function PostMessage({ user, savePost, post, setVisibility, setIsEditTrue }) {
   return (
     <div className="post-message-container">
       <div className="post-message-left">
-        <Link to={`/${user.username}`}>
+        <Link to={`/profile/${user.username}`}>
           <img
             src={user.displayPicture}
             alt={user.username}
