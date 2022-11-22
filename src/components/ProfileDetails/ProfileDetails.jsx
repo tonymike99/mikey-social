@@ -115,10 +115,12 @@ function ProfileDetails({ user }) {
             style={{ display: user.isVerified ? "block" : "none" }}
           ></i>
           {user.username === userDetails.username && (
-            <i
-              className="fa-solid fa-pen"
-              onClick={editProfileOnClickHandler}
-            ></i>
+            <span className="pointer">
+              <i
+                className="fa-solid fa-pen"
+                onClick={editProfileOnClickHandler}
+              ></i>
+            </span>
           )}
           {user.username !== userDetails.username && (
             <button
