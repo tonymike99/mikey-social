@@ -1,40 +1,50 @@
-.home {
+.home-container {
   display: flex;
 }
 
-.home > * {
+.home-container > * {
   flex-basis: 50%;
 }
 
 .hero-image {
-  margin-top: -2.5rem;
+  margin-top: -5rem;
+  margin-bottom: -2.5rem;
 }
 
-.hero-text {
+.hero-image-container {
+  margin: auto 0;
+}
+
+.hero-text-container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding: 2rem;
 }
 
-.sub-title {
+.hero-text-title {
   font-size: 7.5rem;
 }
 
+.hero-text-description {
+  word-spacing: 2px;
+  line-height: 2rem;
+}
+
 @media screen and (max-width: 960px) {
-  .sub-title {
+  .hero-text-title {
     font-size: 5rem;
   }
 }
 
 @media screen and (max-width: 720px) {
-  .home {
+  .home-container {
     flex-direction: column;
   }
 
-  .hero-text,
-  .sub-title,
-  .description {
+  .hero-text-container,
+  .hero-text-title,
+  .hero-text-description {
     text-align: center;
   }
 }

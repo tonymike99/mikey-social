@@ -71,19 +71,19 @@ function Home() {
         </div>
       ) : (
         <div className={styles["main-container-unauthenticated"]}>
-          <main className="home">
-            <section className="hero-image">
+          <main className="home-container">
+            <section className="hero-image-container">
               <img
-                className="image-responsive"
+                className="image-responsive hero-image"
                 src={textingStoryset.default}
                 alt="Two people using their phones"
               />
             </section>
-            <section className="hero-text">
-              <h1 className="sub-title">
+            <section className="hero-text-container">
+              <h1 className="hero-text-title">
                 Social Media for Anyone and Everyone.
               </h1>
-              <p className="description">
+              <p className="hero-text-description">
                 MikeySocial is a social networking website on which users can
                 post and interact with messages known as "moments". It helps you
                 connect with friends, family and other people you know.
