@@ -20,7 +20,7 @@ function PostMessage({ user, savePost, post, setVisibility, setIsEditTrue }) {
     setPostImageValue(url);
   };
 
-  const postMomentOnClickHandler = () => {
+  const postOnClickHandler = () => {
     const data = {
       text: postTextValue,
       image: postImageValue,
@@ -95,9 +95,9 @@ function PostMessage({ user, savePost, post, setVisibility, setIsEditTrue }) {
                 ? "btn btn-light-outline disabled"
                 : "btn btn-primary"
             }
-            onClick={postMomentOnClickHandler}
+            onClick={postOnClickHandler}
           >
-            <i className="fa-solid fa-paper-plane fa-lg" /> Post moment
+            <i className="fa-solid fa-paper-plane fa-lg" /> Post
           </button>
         </div>
       </div>

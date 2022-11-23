@@ -85,8 +85,8 @@ function Home() {
               </h1>
               <p className="hero-text-description">
                 MikeySocial is a social networking website on which users can
-                post and interact with messages known as "moments". It helps you
-                connect with friends, family and other people you know.
+                post and interact with messages. It helps you connect with
+                friends, family and other people you know.
               </p>
               <Link to="/auth">
                 <button className="btn btn-primary">Get connected</button>
