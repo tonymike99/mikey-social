@@ -16,7 +16,7 @@ const filterPostsByType = (posts, loggedInUser, filterType, username) => {
         (post) =>
           loggedInUser.following.findIndex(
             (myUserFollowing) => myUserFollowing.username === post.username
-          ) === -1
+          ) === -1 && post.username !== loggedInUser.username
       );
       break;
 
