@@ -12,7 +12,7 @@ export const users = [
     lastName: "User",
     username: "guest_user",
     password: "IcedLatte@2022",
-    displayPicture: "https://i.pravatar.cc/500",
+    displayPicture: "https://i.pravatar.cc/500?img=12",
     coverPicture:
       "https://images.pexels.com/photos/2821220/pexels-photo-2821220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     isVerified: false,
