@@ -57,7 +57,7 @@ function Comments({ post, user, addCommentToPost, deleteCommentFromPost }) {
               >
                 <i className="fa-solid fa-trash"></i>
               </span>
-            )}
+            )}{" "}
             <small>{postComment.createdAt}</small>
           </div>
         </div>
@@ -73,7 +73,7 @@ function Comments({ post, user, addCommentToPost, deleteCommentFromPost }) {
           name=""
           id=""
           rows="1"
-          placeholder="Enter your comment here"
+          placeholder="Your comment"
           value={textAreaInput}
           onChange={textAreaInputOnChangeHandler}
         ></textarea>
