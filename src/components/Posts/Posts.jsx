@@ -24,20 +24,12 @@ function Posts({ filteredPosts, users }) {
     else return <h3>You have no posts :(</h3>;
   };
 
-  const postsTitle = () => {
-    if (location.pathname === "/")
-      return <h2 className="text-center margin-bottom-2">My feed</h2>;
-    else if (location.pathname.startsWith("/explore"))
-      return <h2 className="text-center margin-bottom-2">Posts</h2>;
-  };
-
   // ****************************************************************************************************
 
   return (
-    <>
+    <div className="posts-container">
       {filteredPosts.length > 0 ? (
         <>
-          {postsTitle()}
           {filteredPosts.reverse().map((filteredPost) => (
             <Post
               key={filteredPost._id}
@@ -49,7 +41,7 @@ function Posts({ filteredPosts, users }) {
       ) : (
         <div className="empty-posts-container">{emptyPostsFiller()}</div>
       )}
-    </>
+    </div>
   );
 }
 
