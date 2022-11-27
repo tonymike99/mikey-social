@@ -161,7 +161,7 @@ aside {
 .card-modal-post-input {
   background-color: var(--light-mode);
   width: 50%;
-  padding: 6rem 3rem 3rem 3rem;
+  padding: 5rem 1rem 0rem 0rem;
   border-radius: 1rem;
 }
 
