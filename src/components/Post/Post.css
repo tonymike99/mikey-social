@@ -22,3 +22,14 @@
   justify-content: space-between;
   margin-top: 1.5rem;
 }
+
+.post-footer > * {
+  margin: 0.5rem 1rem;
+}
+
+@media screen and (max-width: 480px) {
+  .post-footer {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
