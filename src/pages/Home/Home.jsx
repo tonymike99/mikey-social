@@ -49,7 +49,7 @@ function Home() {
     <>
       {areConditionsSatisfiedForPageLoad() ? (
         <div className={styles["container-authenticated"]}>
-          <main className="main">
+          <main className="home-main">
             <PostMessage user={loggedInUser()} savePost={createPost} />
             <Posts
               filteredPosts={filterPostsByType(
