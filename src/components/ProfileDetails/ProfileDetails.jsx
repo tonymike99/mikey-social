@@ -167,7 +167,11 @@ function ProfileDetails({ user }) {
               >
                 <i className="fa-solid fa-times"></i>
               </button>
-              <img src={user.displayPicture} alt={user.username} />
+              <img
+                className="image-responsive"
+                src={user.displayPicture}
+                alt={user.username}
+              />
             </div>
           </div>
         </div>
