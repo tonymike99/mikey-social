@@ -130,12 +130,12 @@ function Signup({ setComponent }) {
           </button>
         </div>
 
-        <small
+        {/* <small
           className="styled-link pointer"
           onClick={handleGuestSignupOnClick}
         >
           Guest Signup
-        </small>
+        </small> */}
 
         <small
           className="styled-link pointer"
