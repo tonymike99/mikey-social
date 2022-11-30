@@ -13,8 +13,8 @@
 }
 
 .hero-image {
-  margin-top: -5rem;
-  margin-bottom: -2.5rem;
+  margin: -5rem auto -2.5rem auto;
+  width: 85%;
 }
 
 .hero-image-container {
